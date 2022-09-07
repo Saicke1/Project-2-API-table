@@ -1,0 +1,98 @@
+body {
+  background-image: url("../Images/marioWallpaper.png");
+  background-color: whites;
+}
+
+.carousel-control-prev-icon {
+  background-color: #a9afb0;
+}
+
+.carousel-control-next-icon {
+  background-color: #a9afb0;
+}
+
+#carouselExampleIndicators {
+  margin-left: 20%;
+  width: 60%;
+  height: 80%;
+}
+
+#welcome-sent {
+  margin-top: 20px;
+  font-weight: bolder;
+  background-color: red;
+  font-size: 30px;
+}
+
+#welcomeButton {
+  background-color: red;
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  margin-left: 15%;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  box-shadow: 3px 3px gray;
+}
+
+.WelcomeText {
+  background-color: #fbd000;
+  border-right: 5px solid #ffde24;
+  border-left: 5px solid #ffde24;
+  border-bottom: 5px solid #a78e00;
+  border-top: 5px solid #ffea72;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-left: 15%;
+  width: 70%;
+  height: auto;
+  position: relative;
+  display: none;
+}
+
+.coin-box-rivet1 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #a78e00;
+  left: 0;
+  top: 0;
+}
+
+.coin-box-rivet2 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #a78e00;
+  right: 0;
+  top: 0;
+}
+.coin-box-rivet3 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #a78e00;
+  left: 0;
+  bottom: 0;
+}
+.coin-box-rivet4 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #a78e00;
+  bottom: 0;
+  right: 0;
+}
+
+.boxText {
+  padding: 25px;
+}
