@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="API2.css" />
+</head>
+<body>
+<!-- NAVIGATION BAR -->
+<nav class="navbar sticky-top bg-light">
+    <div class="container-fluid">
+      <a href="https://mario-kart-tour-api.herokuapp.com/"
+        ><img
+          src="./Images/nintendo.svg.png"
+          alt="nintendo-logo"
+          width="90"
+          height="35"
+          class="d-inline-block align-text-top"
+      /></a>
+      <!-- NAVIGATION BAR INSIDE A NAVIGATION BAR -->
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Welcome!</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="API.html">Drivers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Images.html">Images</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Another action</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <a class="navbar-brand" href="#">Mario Kart Tour Drivers</a>
+    </div>
+  </nav>
+  <!-- MARIO WELCOME FIGURE -->
+  <div class="text-center">
+    <img
+      src="./Images/marioWelcome.png"
+      class="rounded"
+      alt="marioWelcome"
+      width="10%"
+      height="15%"
+    />
+  </div>
+  <!-- SEARCH BAR -->
+
+  <div class="input-group">
+    <input
+      type="text"
+      id="searchInput"
+      class="form-control"
+      placeholder="Search for drivers..."
+      aria-label="Recipient's username with two button addons"
+    />
+    <button
+      class="btn btn-outline-secondary search-btn"
+      id="searchBtn"
+      type="button"
+    >
+      Search
+    </button>
+    <button
+      class="btn btn-outline-secondary clear-btn"
+      id="clearBtn"
+      type="button"
+    >
+      Clear
+    </button>
+  </div>
+  <!-- TABLE -->
+  <table class="table" id="emptyTable">
+    <thead id="thread">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Driver</th>
+        <th scope="col">Debut Tour</th>
+        <th scope="col">Special Skill</th>
+      </tr>
+    </thead>
+    <tbody id="bodyTable"></tbody>
+  </table>
+
+  <div id="LakituDiv">
+    <div class="coin-box-rivet1"><br /></div>
+    <div class="coin-box-rivet2"><br /></div>
+    <div class="coin-box-rivet3"><br /></div>
+    <div class="coin-box-rivet4"><br /></div>
+    <img src="./Images/lakituWait.png" width="40%" height="40%" alt="Lakitu">
+  </div>
+
+     <!-- SCRIPT -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="API2.js"></script>
+</body>
+</html>
