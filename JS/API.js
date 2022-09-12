@@ -1,62 +1,74 @@
-console.log(drivers);
-var data = drivers.name;
-console.log(drivers[0]); //shows array of first character
-var firstName = drivers[0].name;
-console.log(firstName);
-console.log(typeof firstName);
+const url = "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers";
+const tbody = document.getElementById("bodyTable");
+const searchBtn = document.getElementById("searchBtn");
+const clearBtn = document.getElementById("clearBtn");
+const input = document.getElementById("searchInput");
+const boxMustache = document.getElementById("checkMustache");
+let filterMustache
+let data
 
-renderTable(drivers);
+fetching()
 
-function renderTable(driversList) {
-  var tbody = document.getElementById("tableContainer");
+//FETCH THE API DATA
 
-  for (var i = 0; i < driversList.length; i++) {
-    var tr = document.createElement("tr");
+function fetching(){
+fetch(url).then(response => {
+  return response.json()
+}).then(result => {  
+  data = result
+  console.log(data)
+})
+setTimeout(displayTable, 2000);
+}
 
-    var td1 = document.createElement("td");
-    td1.innerHTML = i + 1;
+//DISPLAY THE WHOLE API DATA
 
-    var td2 = document.createElement("td");
-    td2.innerHTML = driversList[i].name;
+function displayTable(){
+data.forEach((driver, i) => {
+  console.log('driver', driver)
 
-    var td3 = document.createElement("td");
-    td3.innerHTML = driversList[i].debut_tour;
+  //create Elements
+  const tr = document.createElement("tr");
+  const td1 = document.createElement("td");
+  const td2 = document.createElement("td");
+  const td3 = document.createElement("td");
+  const td4 = document.createElement("td");
 
-    var td4 = document.createElement("td");
-    td4.innerHTML = driversList[i].special_skill;
+//define the inner HTML
+td1.innerHTML = i + 1;
+td2.innerHTML = driver.name;
+td3.innerHTML = driver.debut_tour;
+td4.innerHTML = driver.special_skill;
 
-    td1.setAttribute("class", "columStyle");
+//style the rows and columns
+td1.setAttribute("class", "columStyle");
     td1.setAttribute("id", "countStyle");
     td2.setAttribute("class", "columStyle");
     td3.setAttribute("class", "columStyle");
     td4.setAttribute("class", "columStyle");
     tr.setAttribute("class", "rows");
 
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
+  //append everything
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
 
-    tbody.appendChild(tr);
-  }
+  tbody.appendChild(tr);
+})
+const lakitu = document.getElementById("LakituDiv");
+  lakitu.style.display = "none";
 }
 
-function filterByName() {
-  var input = document.getElementById("searchInput");
-  var filteredlist;
+//FUNCTION SEARCH BAR WITH SEARCH BUTTON
 
-  renderTable(filteredlist);
-}
-//Function for searching!
+searchBtn.addEventListener("click", searchBar);
+
 function searchBar() {
   // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("searchInput");
+  let filter, tr, td, i, txtValue;
   filter = input.value.toUpperCase();
-  table2 = document.getElementById("tableContainer");
-  console.log("table", table2);
-  tr = table2.getElementsByTagName("tr");
-  console.log("tr", tr);
+  tr = tbody.getElementsByTagName("tr");
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
@@ -71,18 +83,57 @@ function searchBar() {
   }
 }
 
-var searchBtn = document.getElementById("searchBtn");
+//FUNCTION CLEAR BUTTON
 
-searchBtn.addEventListener("click", searchBar);
-
-var clearBtn = document.getElementById("clearBtn");
 clearBtn.addEventListener("click", clearing);
-var tbody = document.getElementById("tableContainer");
-var thead = document.getElementById("thread");
 
 function clearing() {
-  var check = document.getElementById("tableContainer");
-  var check2 = document.getElementById();
-  console.log(length);
-  //thead.nextElementSibling.innerHTML = "";
+  tr = tbody.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    if (tr[i].style.display = "none") {
+      tr[i].style.display = "";
+    }
+  }
+  input.value = "";
+}
+
+//FUNCTION CHECKBOX MUSTACHE
+
+boxMustache.addEventListener("click", showMustache)
+
+function showMustache(){
+  if(boxMustache.checked == true){
+    filterMustache = data.filter(driver => driver.mustache == true);
+    //console.log(filterMustache)
+    tr = tbody.getElementsByTagName("tr");
+    for(let i = 0; i < filterMustache.length; i++){
+      //console.log(filterMustache[i].name)
+      for (let j = i; j < tr.length; j++) {
+        td = tr[j].getElementsByTagName("td")[1];
+        if(filterMustache[i].name == td.innerHTML){
+          tr[j].style.display = "";
+        } else {
+          tr[j].style.display = "none";
+        }}
+    }
+    /*filterMustache.forEach(must => {
+      console.log(must.name)
+    })
+    tr = tbody.getElementsByTagName("tr");
+    console.log(tr[1])
+    td = tr[1].getElementsByTagName("td")[1];
+    console.log(td)
+    console.log(td.innerHTML)*/
+   
+   
+   /* 
+ filterMustache.forEach(must => {
+      
+      }
+    })
+  } else {
+    for (i = 0; i < tr.length; i++) {
+      tr[i].style.display = "none";
+      }*/
+  }
 }
