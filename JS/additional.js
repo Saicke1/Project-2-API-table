@@ -1,672 +1,806 @@
 const additional = [
   {
     name: "Baby Mario",
-    img: "../Images/addImages/babyMario.png",
+    img_chara: "../Images/addCharaImages/babyMario.png",
     text: "1",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Baby Peach",
-    img: "../Images/addImages/babyPeach.webp",
+    img_chara: "../Images/addCharaImages/babyPeach.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bubble.webp"
   },
   {
     name: "Baby Daisy",
-    img: "../Images/addImages/babyDaisy.webp",
+    img_chara: "../Images/addCharaImages/babyDaisy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bubble.webp"
   },
   {
     name: "Baby Rosalina",
-    img: "../Images/addImages/babyRosalina.webp",
+    img_chara: "../Images/addCharaImages/babyRosalina.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bubble.webp"
   },
   {
     name: "Baby Luigi",
-    img: "../Images/addImages/babyLuigi.webp",
+    img_chara: "../Images/addCharaImages/babyLuigi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Koopa Troopa",
-    img: "../Images/addImages/koopaTroopa.webp",
+    img_chara: "../Images/addCharaImages/koopaTroopa.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/tripleGreenShells.webp"
   },
   {
     name: "Shy Guy",
-    img: "../Images/addImages/shyGuy.webp",
+    img_chara: "../Images/addCharaImages/shyGuy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Dry Bones",
-    img: "../Images/addImages/dryBones.webp",
+    img_chara: "../Images/addCharaImages/dryBones.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleGreenShells.webp"
   },
   {
     name: "Iggy",
-    img: "../Images/addImages/iggy.webp",
+    img_chara: "../Images/addCharaImages/iggy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleGreenShells.webp"
   },
   {
     name: "Larry",
-    img: "../Images/addImages/larry.webp",
+    img_chara: "../Images/addCharaImages/larry.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Lemmy",
-    img: "../Images/addImages/lemmy.webp",
+    img_chara: "../Images/addCharaImages/lemmy.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/bubble.webp"
   },
   {
     name: "Ludwig",
-    img: "../Images/addImages/ludwig.webp",
+    img_chara: "../Images/addCharaImages/ludwig.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Morton",
-    img: "../Images/addImages/morton.webp",
+    img_chara: "../Images/addCharaImages/morton.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/giantBanana.webp"
   },
   {
     name: "Roy",
-    img: "../Images/addImages/roy.webp",
+    img_chara: "../Images/addCharaImages/roy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Wendy",
-    img: "../Images/addImages/wendy.webp",
+    img_chara: "../Images/addCharaImages/wendy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Mario",
-    img: "../Images/addImages/mario.webp",
+    img_chara: "../Images/addCharaImages/mario.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Peach",
-    img: "../Images/addImages/peach.webp",
+    img_chara: "../Images/addCharaImages/peach.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Yoshi",
-    img: "../Images/addImages/yoshi.webp",
+    img_chara: "../Images/addCharaImages/yoshi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/yoshiEgg.webp"
   },
   {
     name: "Daisy",
-    img: "../Images/addImages/daisy.webp",
+    img_chara: "../Images/addCharaImages/daisy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Toad",
-    img: "../Images/addImages/toad.webp",
+    img_chara: "../Images/addCharaImages/toad.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Toadette",
-    img: "../Images/addImages/toadette.webp",
+    img_chara: "../Images/addCharaImages/toadette.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Rosalina",
-    img: "../Images/addImages/rosalina.webp",
+    img_chara: "../Images/addCharaImages/rosalina.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Luigi",
-    img: "../Images/addImages/luigi.webp",
+    img_chara: "../Images/addCharaImages/luigi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Toad (Pit Crew)",
-    img: "../Images/addImages/toadPitCrew.webp",
+    img_chara: "../Images/addCharaImages/toadPitCrew.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Red Yoshi",
-    img: "../Images/addImages/redYoshi.webp",
+    img_chara: "../Images/addCharaImages/redYoshi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/yoshiEgg.webp"
   },
   {
     name: "Blue Yoshi",
-    img: "../Images/addImages/blueYoshi.webp",
+    img_chara: "../Images/addCharaImages/blueYoshi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Pink Yoshi",
-    img: "../Images/addImages/pinkYoshi.webp",
+    img_chara: "../Images/addCharaImages/pinkYoshi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Yellow Toad (Pit Crew)",
-    img: "../Images/addImages/yellowToadPitCrew.webp",
+    img_chara: "../Images/addCharaImages/yellowToadPitCrew.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/giantBanana.webp"
   },
   {
-    name: "Blue Toad (Pit Crew)",
-    img: "../Images/addImages/blueToadPitCrew.webp",
+    name: "Light-blue Toad (Pit Crew)",
+    img_chara: "../Images/addCharaImages/lightBlueToadPitCrew.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Bowser",
-    img: "../Images/addImages/bowser.webp",
+    img_chara: "../Images/addCharaImages/bowser.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/bowserShell.webp"
   },
   {
     name: "Donkey Kong",
-    img: "../Images/addImages/donkeyKong.webp",
+    img_chara: "../Images/addCharaImages/donkeyKong.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/giantBanana.webp"
   },
   {
     name: "Diddy Kong",
-    img: "../Images/addImages/diddyKong.webp",
+    img_chara: "../Images/addCharaImages/diddyKong.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bananaBarrels.webp"
   },
   {
     name: "Lakitu",
-    img: "../Images/addImages/lakitu.webp",
+    img_chara: "../Images/addCharaImages/lakitu.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleGreenShells.webp"
   },
   {
     name: "Bowser Jr.",
-    img: "../Images/addImages/bowserJr.webp",
+    img_chara: "../Images/addCharaImages/bowserJr.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bowserShell.webp"
   },
   {
     name: "Wario",
-    img: "../Images/addImages/wario.webp",
+    img_chara: "../Images/addCharaImages/wario.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Waluigi",
-    img: "../Images/addImages/waluigi.webp",
+    img_chara: "../Images/addCharaImages/waluigi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "King Boo",
-    img: "../Images/addImages/kingBoo.webp",
+    img_chara: "../Images/addCharaImages/kingBoo.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Black Shy Guy",
-    img: "../Images/addImages/blackShyGuy.webp",
+    img_chara: "../Images/addCharaImages/blackShyGuy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Red Koopa (Freerunning)",
-    img: "../Images/addImages/redKoopaFreerunning.webp",
+    img_chara: "../Images/addCharaImages/redKoopaFreerunning.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Birdo",
-    img: "../Images/addImages/birdo.webp",
+    img_chara: "../Images/addCharaImages/birdo.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/birdosEgg.webp"
   },
   {
     name: "Pink Shy Guy",
-    img: "../Images/addImages/pinkShyGuy.webp",
+    img_chara: "../Images/addCharaImages/pinkShyGuy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Birdo (Light Blue)",
-    img: "../Images/addImages/birdoLightBlue.webp",
+    img_chara: "../Images/addCharaImages/birdoLightBlue.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/birdosEgg.webp"
   },
   {
     name: "Hammer Bro",
-    img: "../Images/addImages/hammerBro.webp",
+    img_chara: "../Images/addCharaImages/hammerBro.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/hammer.webp"
   },
   {
     name: "Boomerang Bro",
-    img: "../Images/addImages/boomerangBro.webp",
+    img_chara: "../Images/addCharaImages/boomerangBro.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Ice Bro",
-    img: "../Images/addImages/iceBro.webp",
+    img_chara: "../Images/addCharaImages/iceBro.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Fire Bro",
-    img: "../Images/addImages/fireBro.webp",
+    img_chara: "../Images/addCharaImages/fireBro.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Birdo (Yellow)",
-    img: "../Images/addImages/birdoYellow.webp",
+    img_chara: "../Images/addCharaImages/birdoYellow.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/birdosEgg.webp"
   },
   {
     name: "Monty Mole",
-    img: "../Images/addImages/montyMole.webp",
+    img_chara: "../Images/addCharaImages/montyMole.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Green Shy Guy",
-    img: "../Images/addImages/greenShyGuy.webp",
+    img_chara: "../Images/addCharaImages/greenShyGuy.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/tripleGreenShells.webp"
   },
   {
     name: "Blue Koopa (Freerunning)",
-    img: "../Images/addImages/blueKoopaFreerunning.webp",
+    img_chara: "../Images/addCharaImages/blueKoopaFreerunning.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Birdo (Blue)",
-    img: "../Images/addImages/birdoBlue.webp",
+    img_chara: "../Images/addCharaImages/birdoBlue.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Purple Koopa (Freerunning)",
-    img: "../Images/addImages/purpleKoopaFreerunning.webp",
+    img_chara: "../Images/addCharaImages/purpleKoopaFreerunning.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Light-blue Shy Guy",
-    img: "../Images/addImages/lightBlueShyGuy.webp",
+    img_chara: "../Images/addCharaImages/lightBlueShyGuy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Metal Mario",
-    img: "../Images/addImages/metalMario.webp",
+    img_chara: "../Images/addCharaImages/metalMario.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Peachette",
-    img: "../Images/addImages/peachette.webp",
+    img_chara: "../Images/addCharaImages/peachette.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Pauline",
-    img: "../Images/addImages/pauline.webp",
+    img_chara: "../Images/addCharaImages/pauline.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Mario (Musician)",
-    img: "../Images/addImages/marioMusician.webp",
+    img_chara: "../Images/addCharaImages/marioMusician.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Peach (Kimono)",
-    img: "../Images/addImages/peachKimono.webp",
+    img_chara: "../Images/addCharaImages/peachKimono.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Mario (Hakama)",
-    img: "../Images/addImages/marioHakama.webp",
+    img_chara: "../Images/addCharaImages/marioHakama.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Rosalina (Halloween)",
-    img: "../Images/addImages/rosalinaHalloween.webp",
+    img_chara: "../Images/addCharaImages/rosalinaHalloween.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Peach-(Vacation)",
-    img: "",
+    img_chara: "",
     text: "1",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Mario (Santa)",
-    img: "../Images/addImages/marioSanta.webp",
+    img_chara: "../Images/addCharaImages/marioSanta.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Pink Gold Peach",
-    img: "../Images/addImages/pinkGoldPeach.webp",
+    img_chara: "../Images/addCharaImages/pinkGoldPeach.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Daisy (Holiday Cheer)",
-    img: "../Images/addImages/daisyHolidayCheer.webp",
+    img_chara: "../Images/addCharaImages/daisyHolidayCheer.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Yoshi (Reindeer)",
-    img: "../Images/addImages/yoshiReindeer.webp",
+    img_chara: "../Images/addCharaImages/yoshiReindeer.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/yoshiEgg.webp"
   },
   {
     name: "Pauline (Party Time)",
-    img: "../Images/addImages/paulinePartyTime.webp",
+    img_chara: "../Images/addCharaImages/paulinePartyTime.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Mario (Happi)",
-    img: "../Images/addImages/marioHappi.webp",
+    img_chara: "../Images/addCharaImages/marioHappi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Toad (Party Time)",
-    img: "../Images/addImages/toadPartyTime.webp",
+    img_chara: "../Images/addCharaImages/toadPartyTime.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Peach (Wintertime)",
-    img: "../Images/addImages/peachWintertime.webp",
+    img_chara: "../Images/addCharaImages/peachWintertime.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Penguin Luigi",
-    img: "../Images/addImages/penguinLuigi.webp",
+    img_chara: "../Images/addCharaImages/penguinLuigi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Ice Mario",
-    img: "../Images/addImages/iceMario.webp",
+    img_chara: "../Images/addCharaImages/iceMario.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Baby Peach (Cherub)",
-    img: "../Images/addImages/babyPeachCherub.webp",
+    img_chara: "../Images/addCharaImages/babyPeachCherub.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Rosalina (Aurora)",
-    img: "../Images/addImages/rosalinaAurora.webp",
+    img_chara: "../Images/addCharaImages/rosalinaAurora.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Mario (Classic)",
-    img: "../Images/addImages/marioClassic.webp",
+    img_chara: "../Images/addCharaImages/marioClassic.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Luigi (Classic)",
-    img: "../Images/addImages/luigiClassic.webp",
+    img_chara: "../Images/addCharaImages/luigiClassic.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Baby Rosalina (Detective)",
-    img: "../Images/addImages/babyRosalinaDetective.webp",
+    img_chara: "../Images/addCharaImages/babyRosalinaDetective.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Yoshi (Egg Hunt)",
-    img: "../Images/addImages/yoshiEggHunt.webp",
+    img_chara: "../Images/addCharaImages/yoshiEggHunt.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/yoshiEgg.webp"
   },
   {
     name: "Black Yoshi",
-    img: "../Images/addImages/blackYoshi.webp",
+    img_chara: "../Images/addCharaImages/blackYoshi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Builder Mario",
-    img: "../Images/addImages/builderMario.webp",
+    img_chara: "../Images/addCharaImages/builderMario.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/hammer.webp"
   },
   {
     name: "Builder Toad",
-    img: "../Images/addImages/builderToad.webp",
+    img_chara: "../Images/addCharaImages/builderToad.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Daisy (Fairy)",
-    img: "../Images/addImages/daisyFairy.webp",
+    img_chara: "../Images/addCharaImages/daisyFairy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Mario (Chef)",
-    img: "../Images/addImages/marioChef.webp",
+    img_chara: "../Images/addCharaImages/marioChef.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Peach (Wedding)",
-    img: "../Images/addImages/peachWedding.webp",
+    img_chara: "../Images/addCharaImages/peachWedding.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Rosalina (Swimwear)",
-    img: "../Images/addImages/rosalinaSwimwear.webp",
+    img_chara: "../Images/addCharaImages/rosalinaSwimwear.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Mario (Swimwear)",
-    img: "../Images/addImages/marioSwimwear.webp",
+    img_chara: "../Images/addCharaImages/marioSwimwear.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Captain Toad",
-    img: "../Images/addImages/captainToad.webp",
+    img_chara: "../Images/addCharaImages/captainToad.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/hammer.webp"
   },
   {
     name: "Toadette (Explorer)",
-    img: "../Images/addImages/toadetteExplorer.webp",
+    img_chara: "../Images/addCharaImages/toadetteExplorer.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/doubleBobOmb.webp"
   },
   {
     name: "Daisy (Yukata)",
-    img: "../Images/addImages/daisyYukata.webp",
+    img_chara: "../Images/addCharaImages/daisyYukata.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Mario (SNES)",
-    img: "../Images/addImages/marioSnes.webp",
+    img_chara: "../Images/addCharaImages/marioSnes.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Mario (Sunshine)",
-    img: "../Images/addImages/marioSunshine.webp",
+    img_chara: "../Images/addCharaImages/marioSunshine.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/giantBanana.webp"
   },
   {
     name: "Mario (Halloween)",
-    img: "../Images/addImages/marioHalloween.webp",
+    img_chara: "../Images/addCharaImages/marioHalloween.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Peach (Halloween)",
-    img: "../Images/addImages/peachHalloween.webp",
+    img_chara: "../Images/addCharaImages/peachHalloween.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Peach (Explorer)",
-    img: "../Images/addImages/PeachExplorer.webp",
+    img_chara: "../Images/addCharaImages/PeachExplorer.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Builder Luigi",
-    img: "../Images/addImages/builderLuigi.webp",
+    img_chara: "../Images/addCharaImages/builderLuigi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/hammer.webp"
   },
   {
     name: "Fire Rosalina",
-    img: "../Images/addImages/fireRosalina.webp",
+    img_chara: "../Images/addCharaImages/fireRosalina.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Luigi (Lederhosen)",
-    img: "../Images/addImages/luigiLederhosen.webp",
+    img_chara: "../Images/addCharaImages/luigiLederhosen.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Cat Peach",
-    img: "../Images/addImages/catPeach.webp",
+    img_chara: "../Images/addCharaImages/catPeach.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/superBell.webp"
   },
   {
     name: "Cat Toad",
-    img: "../Images/addImages/catToad.webp",
+    img_chara: "../Images/addCharaImages/catToad.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/superBell.webp"
   },
   {
     name: "Pauline (Rose)",
-    img: "../Images/addImages/paulineRose.webp",
+    img_chara: "../Images/addCharaImages/paulineRose.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Penguin Toad",
-    img: "../Images/addImages/penguinToad.webp",
+    img_chara: "../Images/addCharaImages/penguinToad.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
     name: "Mario (Racing)",
-    img: "../Images/addImages/marioRacing.webp",
+    img_chara: "../Images/addCharaImages/marioRacing.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "White Yoshi",
-    img: "../Images/addImages/whiteYoshi.webp",
+    img_chara: "../Images/addCharaImages/whiteYoshi.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleMushrooms.webp"
   },
   {
     name: "Baby Mario (Koala)",
-    img: "../Images/addImages/babyMarioKoala.webp",
+    img_chara: "../Images/addCharaImages/babyMarioKoala.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/heart.webp"
   },
   {
     name: "Builder Toadette",
-    img: "../Images/addImages/builderToadette.webp",
+    img_chara: "../Images/addCharaImages/builderToadette.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/hammer.webp"
   },
   {
     name: "Mario (Tuxedo)",
-    img: "../Images/addImages/marioTuxedo.webp",
+    img_chara: "../Images/addCharaImages/marioTuxedo.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Luigi (Painter)",
-    img: "../Images/addImages/luigiPainter.webp",
+    img_chara: "../Images/addCharaImages/luigiPainter.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Daisy (Swimwear)",
-    img: "../Images/addImages/daisySwimwear.webp",
+    img_chara: "../Images/addCharaImages/daisySwimwear.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleBanana.webp"
   },
   {
     name: "Mario (Baseball)",
-    img: "../Images/addImages/marioBaseball.webp",
+    img_chara: "../Images/addCharaImages/marioBaseball.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Peach (Happi)",
-    img: "../Images/addImages/peachHappi.webp",
+    img_chara: "../Images/addCharaImages/peachHappi.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Penguin Mario",
-    img: "../Images/addImages/penguinMario.webp",
+    img_chara: "../Images/addCharaImages/penguinMario.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/iceFlower.webp"
   },
   {
     name: "Yoshi (Kangaroo)",
-    img: "../Images/addImages/yoshiKangaroo.webp",
+    img_chara: "../Images/addCharaImages/yoshiKangaroo.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "Tanooki Mario",
-    img: "../Images/addImages/tanookiMario.webp",
+    img_chara: "../Images/addCharaImages/tanookiMario.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/superLeaf.webp"
   },
   {
     name: "Dry Bowser",
-    img: "../Images/addImages/dryBowser.webp",
+    img_chara: "../Images/addCharaImages/dryBowser.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bowserShell.webp"
   },
   {
     name: "King Boo (Luigi's Mansion)",
-    img: "../Images/addImages/kingBooLuigisMansion.webp",
+    img_chara: "../Images/addCharaImages/kingBooLuigisMansion.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Shy Guy (Pastry Chef)",
-    img: "../Images/addImages/shyGuyPastryChef.webp",
+    img_chara: "../Images/addCharaImages/shyGuyPastryChef.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/mushroomCannon.webp"
   },
   {
     name: "Waluigi (Bus Driver)",
-    img: "../Images/addImages/waluigiBusDriver.webp",
+    img_chara: "../Images/addCharaImages/waluigiBusDriver.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleBanana.webp"
   },
   {
     name: "Gold Koopa (Freerunning)",
-    img: "../Images/addImages/goldKoopaFreerunning.webp",
+    img_chara: "../Images/addCharaImages/goldKoopaFreerunning.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Wario (Hiker)",
-    img: "../Images/addImages/warioHiker.webp",
+    img_chara: "../Images/addCharaImages/warioHiker.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Dry Bones (Gold)",
-    img: "../Images/addImages/dryBonesGold.webp",
+    img_chara: "../Images/addCharaImages/dryBonesGold.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Funky Kong",
-    img: "../Images/addImages/funkyKong.webp",
+    img_chara: "../Images/addCharaImages/funkyKong.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bananaBarrels.webp"
   },
   {
     name: "Dixie Kong",
-    img: "../Images/addImages/dixieKong.webp",
+    img_chara: "../Images/addCharaImages/dixieKong.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleBanana.webp"
   },
   {
     name: "Dry Bowser (Gold)",
-    img: "../Images/addImages/dryBowserGold.webp",
+    img_chara: "../Images/addCharaImages/dryBowserGold.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Wario (Cowboy)",
-    img: "../Images/addImages/warioCowboy.webp",
+    img_chara: "../Images/addCharaImages/warioCowboy.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/fireFlower.webp"
   },
   {
     name: "Nabbit",
-    img: "../Images/addImages/nabbit.webp",
+    img_chara: "../Images/addCharaImages/nabbit.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Bowser Jr. (Pirate)",
-    img: "../Images/addImages/bowserJrPirate.webp",
+    img_chara: "../Images/addCharaImages/bowserJrPirate.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "King Bob-omb",
-    img: "../Images/addImages/kingBobOmb.webp",
+    img_chara: "../Images/addCharaImages/kingBobOmb.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/gigaBobOmb.webp"
   },
   {
     name: "Donkey Kong Jr. (SNES)",
-    img: "../Images/addImages/donkeyKongJrSnes.webp",
+    img_chara: "../Images/addCharaImages/donkeyKongJrSnes.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/tripleBanana.webp"
   },
   {
     name: "Shy Guy (Gold)",
-    img: "../Images/addImages/shyGuyGold.webp",
+    img_chara: "../Images/addCharaImages/shyGuyGold.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/gigaBobOmb.webp"
   },
   {
     name: "King Boo (Gold)",
-    img: "../Images/addImages/kingBooGold.webp",
+    img_chara: "../Images/addCharaImages/kingBooGold.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Bowser (Santa)",
-    img: "../Images/addImages/bowserSanta.webp",
+    img_chara: "../Images/addCharaImages/bowserSanta.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   },
   {
     name: "Lakitu (Party Time)",
-    img: "../Images/addImages/lakituPartyTime.webp",
+    img_chara: "../Images/addCharaImages/lakituPartyTime.webp",
     text: "1",
+    img_skill: "../Images/addSkillImages/luckySeven.webp"
   },
   {
     name: "Birdo (Black)",
-    img: "../Images/addImages/birdoBlack.webp",
+    img_chara: "../Images/addCharaImages/birdoBlack.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/bobOmbCanon.webp"
   },
   {
     name: "Shy Guy Ninja",
-    img: "../Images/addImages/shyGuyNinja.webp",
+    img_chara: "../Images/addCharaImages/shyGuyNinja.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
   },
   {
     name: "King Bob-omb (Gold)",
-    img: "../Images/addImages/kingBobOmbGold.webp",
+    img_chara: "../Images/addCharaImages/kingBobOmbGold.webp",
     text: "2",
+    img_skill: "../Images/addSkillImages/coinBox.webp"
   }
 ]

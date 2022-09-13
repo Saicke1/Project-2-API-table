@@ -35,45 +35,54 @@ data.forEach((driver, i) => {
   const td2 = document.createElement("td");
   const td3 = document.createElement("td");
   const td4 = document.createElement("td");
-  const img = document.createElement("img");
+  const img_chara = document.createElement("img");
+  const img_skill = document.createElement("img");
 
-//define the inner HTML
-
+//define the inner HTML/Content
 for(let g = 0; g < addInfo.length; g++){
 if(driver.name == addInfo[g].name){
-img.src = addInfo[g].img;
+img_chara.src = addInfo[g].img_chara;
 break;
 } else {
-  img.src = "../Images/question.png";
+  img_chara.src = "../Images/question.png";
 }
 }
 
-td2.innerHTML = driver.name;
+td2.innerHTML = "<br>" + driver.name;
 
 try{
   const debutGame = driver.level_one_favorite_courses[0].debut_game
-  td3.innerHTML = debutGame;
+  td3.innerHTML = "<br>" + debutGame;
 } catch{
-  td3.innerHTML = "No Debut Game";
+  td3.innerHTML = "<br>" + "No Debut Game";
 }
 
-td4.innerHTML = driver.special_skill;
+td4.innerHTML = driver.special_skill + "<br>";
+for(let d = 0; d < addInfo.length; d++){
+  if(driver.name == addInfo[d].name){
+  img_skill.src = addInfo[d].img_skill;
+  break;
+  } else {
+    img_skill.src = "../Images/question.png";
+  }
+}
+
 
 //style the rows and columns
 tr.setAttribute("class", "rows");
 td1.setAttribute("class", "columStyle");
-td1.setAttribute("id", "countStyle");
 td2.setAttribute("class", "columStyle");
 td3.setAttribute("class", "columStyle");
 td4.setAttribute("class", "columStyle");
-img.setAttribute("class", "imageSize");
-    
+img_chara.setAttribute("class", "imageChara");
+img_skill.setAttribute("class", "imageSkill");    
 
   //append everything
-  td1.appendChild(img);
+  td1.appendChild(img_chara);
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
+  td4.appendChild(img_skill);
   tr.appendChild(td4);
 
   tbody.appendChild(tr);
@@ -94,9 +103,9 @@ function showMustache(){
     for(let i = 0; i < filterMustache.length; i++){
       for (let j = i; j < tr.length; j++) {
         td = tr[j].getElementsByTagName("td")[1];
-        if(filterMustache[i].name == td.innerHTML && tr[j].className !== 'checkedMustache'){
+        if(filterMustache[i].name == td.textContent && tr[j].className !== 'checkedMustache'){
           tr[j].classList.add("checkedMustache");
-          console.log(tr[j]);
+          //console.log(tr[j]);
         }}
     }
     for(let h = 0; h < tr.length; h++){
@@ -132,7 +141,7 @@ function showHat(){
     for(let i = 0; i < filterHat.length; i++){
       for (let j = i; j < tr.length; j++) {
         td = tr[j].getElementsByTagName("td")[1];
-        if(filterHat[i].name == td.innerHTML && tr[j].className !== 'checkedHat'){
+        if(filterHat[i].name == td.textContent && tr[j].className !== 'checkedHat'){
           tr[j].classList.add("checkedHat");
           console.log(tr[j]);
         }}
@@ -140,7 +149,7 @@ function showHat(){
     for(let h = 0; h < tr.length; h++){
       if(tr[h].classList.contains("checkedHat") && tr[h].style.display == ""){
         tr[h].style.display = "";
-        console.log(tr[h])
+        //console.log(tr[h])
       } else {
         tr[h].style.display = "none";
       }
