@@ -37,18 +37,26 @@ data.forEach((driver, i) => {
   const td4 = document.createElement("td");
   const img = document.createElement("img");
 
+//define the inner HTML
+
 for(let g = 0; g < addInfo.length; g++){
 if(driver.name == addInfo[g].name){
 img.src = addInfo[g].img;
 break;
 } else {
-  img.src = "../Images/nintendo.svg.png";
+  img.src = "../Images/question.png";
 }
 }
 
-//define the inner HTML
 td2.innerHTML = driver.name;
-td3.innerHTML = driver.debut_tour;
+
+try{
+  const debutGame = driver.level_one_favorite_courses[0].debut_game
+  td3.innerHTML = debutGame;
+} catch{
+  td3.innerHTML = "No Debut Game";
+}
+
 td4.innerHTML = driver.special_skill;
 
 //style the rows and columns
