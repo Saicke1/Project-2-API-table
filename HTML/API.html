@@ -103,49 +103,49 @@
     <!-- SEARCH FORM -->
     <!-- CHECKBOXES -->
     <div class="checkboxes">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="checkMustache">
-      <label class="form-check-label" for="flexCheckDefault">
-        Mustache
-      </label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkMustache">
+        <label class="form-check-label" for="flexCheckDefault">
+          Mustache
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkHat">
+        <label class="form-check-label" for="flexCheckDefault">
+          Hat
+        </label>
+      </div>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Baby
-      </label>
+      <!-- SEARCH BAR -->
+    <div class="input-group">
+      <input
+        type="text"
+        id="searchInput"
+        class="form-control"
+        placeholder="Search for drivers..."
+        aria-label="Recipient's username with two button addons"
+      />
+      <button
+        class="btn btn-outline-secondary search-btn"
+        id="searchBtn"
+        type="button"
+      >
+        Search
+      </button>
+      <button
+        class="btn btn-outline-secondary clear-btn"
+        id="clearBtn"
+        type="button"
+      >
+        Clear
+      </button>
     </div>
-  </div>
-    <!-- SEARCH BAR -->
-  <div class="input-group">
-    <input
-      type="text"
-      id="searchInput"
-      class="form-control"
-      placeholder="Search for drivers..."
-      aria-label="Recipient's username with two button addons"
-    />
-    <button
-      class="btn btn-outline-secondary search-btn"
-      id="searchBtn"
-      type="button"
-    >
-      Search
-    </button>
-    <button
-      class="btn btn-outline-secondary clear-btn"
-      id="clearBtn"
-      type="button"
-    >
-      Clear
-    </button>
-  </div>
-</form>
+  </form>
   <!-- TABLE -->
   <table class="table" id="emptyTable">
     <thead id="thread">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col"></th>
         <th scope="col">Driver</th>
         <th scope="col">Debut Tour</th>
         <th scope="col">Special Skill</th>
@@ -168,6 +168,7 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+    <script src="../JS/additional.js"></script>
     <script src="../JS/API.js"></script>
 </body>
 </html>

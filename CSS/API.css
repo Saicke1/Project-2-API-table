@@ -66,10 +66,6 @@ body {
     padding: 0.5rem 0.5rem;
   }
   
-  #countStyle {
-    font-weight: bold;
-  }
-  
   tr.rows:hover {
     background-color: red;
     cursor: pointer;
@@ -131,3 +127,16 @@ body {
     bottom: 0;
     right: 0;
   }
+
+.checkedMustache{
+
+}
+
+.checkedHat{
+
+}
+
+.imageSize{
+  width: 50px;
+  height: 80px;
+}
