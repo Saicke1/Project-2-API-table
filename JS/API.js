@@ -19,14 +19,13 @@ fetch(url).then(response => {
 }).then(result => {  
   data = result
   //console.log(data)
-})
-setTimeout(displayTable, 3000);
-}
+  setTimeout(displayTable(data), 3000);
+})}
 
 //DISPLAY THE WHOLE API DATA
 
-function displayTable(){
-data.forEach((driver, i) => {
+function displayTable(input){
+input.forEach((driver) => {
   //console.log('driver', driver)
 
   //create Elements
@@ -40,7 +39,7 @@ data.forEach((driver, i) => {
 
 //define the inner HTML/Content
 for(let g = 0; g < addInfo.length; g++){
-if(driver.name == addInfo[g].name){
+if(driver.name == addInfo[g].name && addInfo[g].img_chara != ""){
 img_chara.src = addInfo[g].img_chara;
 break;
 } else {
@@ -91,6 +90,7 @@ const lakitu = document.getElementById("LakituDiv");
   lakitu.style.display = "none";
 }
 
+/*
 //FUNCTION CHECKBOX MUSTACHE
 
 boxMustache.addEventListener("click", showMustache)
@@ -167,6 +167,7 @@ function showHat(){
     }
   }
 }
+*/
 
 //FUNCTION SEARCH BAR WITH SEARCH BUTTON
 
@@ -203,4 +204,100 @@ function clearing() {
     }
   }
   input.value = "";
+}
+
+
+//CODE FOR CHECKBOXES WITH LMS
+
+//set all checkboxes in a variable
+let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+//Event for every change on those checkboxes
+checkboxes.forEach(changed => {
+  changed.addEventListener("change", showChecked)
+})
+
+//create an empty array for the checked values
+let checkedValues = [];
+
+//get all the value, if they are checked
+function showChecked() {
+  checkedValues = [];
+  checkboxes.forEach(checked =>{
+    if(checked.checked){
+      let dataValue = checked.value;
+      checkedValues.push(dataValue);
+    }
+    return checkedValues
+  })
+  if(checkedValues.length === 0){
+    tbody.innerHTML = "";
+    displayTable(data);
+  } else {
+  createCheckboxTable(checkedValues);}
+} 
+
+function createCheckboxTable(input){
+  const arrayDriver = [];
+  //check each checked value and if there is a hit and then do the filtering
+  for(let i = 0; i<input.length; i++){
+  if(input[i] === "mustache"){
+    arrayDriver.push(filteredMustache());
+  } else {
+    arrayDriver.push(filteredHat());
+  } 
+}
+  
+//clean up this new array
+//cleanCheckedArray(arrayDriver);
+const cleanedArray = [];
+const doubledNames = [];
+for(let g=0; g<arrayDriver.length; g++){
+  arrayDriver[g].forEach(test => {
+    if(doubledNames.includes(test.name)){
+      console.log("doubled", test.name)
+    } else{
+      doubledNames.push(test.name);
+      cleanedArray.push(test);
+    }
+  }) 
+  console.log('cleanedArray', cleanedArray)
+}
+
+  //emtpy the exisiting table
+  tbody.innerHTML = "";
+  //insert the checked Driver in the table and show them
+  /*cleanedArray.forEach(testing =>{   only necessary, when an array has more then one object
+    displayTable(testing);
+  })*/
+  displayTable(cleanedArray);
+  }
+
+function filteredMustache(){ 
+  filterMustache = data.filter(driver => driver.mustache == true);
+  return filterMustache
+}
+
+function filteredHat(){
+  filterHat = data.filter(driver => driver.hat == true);
+  return filterHat;
+}
+
+function cleanCheckedArray(input){
+const cleanedArray = [];
+const doubledNames = [];
+//console.log('input[0].length', input[0].length)  ist 30
+//console.log('input[1].length', input[1].length)  ist 39
+for(let g=0; g<input.length; g++){
+input[g].forEach(test => {
+  if(doubledNames.includes(test.name)){
+    console.log("doubled", test.name)
+  } else{
+    doubledNames.push(test.name);
+    cleanedArray.push(test);
+  }
+})
+console.log('cleanedArray', cleanedArray)
+}
+return cleanedArray;
 }

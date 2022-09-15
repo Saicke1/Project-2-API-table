@@ -360,7 +360,7 @@ const additional = [
     img_skill: "../Images/addSkillImages/dashRing.webp"
   },
   {
-    name: "Peach-(Vacation)",
+    name: "Peach (Vacation)",
     img_chara: "",
     text: "1",
     img_skill: "../Images/addSkillImages/coinBox.webp"
