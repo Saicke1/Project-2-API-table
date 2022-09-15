@@ -82,7 +82,7 @@
       </nav>
       <a class="navbar-brand" href="#">Mario Kart Tour Drivers</a>
     </div>
-  </nav>
+</nav>
   <!-- MARIO WELCOME FIGURE -->
   <div class="text-center">
     <img
@@ -102,6 +102,9 @@
     <div class="coin-box-rivet4"><br /></div>
     <!-- SEARCH FORM -->
     <!-- CHECKBOXES -->
+    <div class="title-show-drivers">
+      <h3>Show me the following drivers that have...</h3>
+    </div>
     <div class="checkboxes">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="mustache" id="checkMustache">
@@ -115,8 +118,20 @@
           Hat
         </label>
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="horns" id="checkHorns">
+        <label class="form-check-label" for="flexCheckDefault">
+          Horns
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="gloves" id="checkGloves">
+        <label class="form-check-label" for="flexCheckDefault">
+          Gloves
+        </label>
+      </div>
     </div>
-      <!-- SEARCH BAR -->
+<!-- SEARCH BAR---------------------------------------------------------- -->
     <div class="input-group">
       <input
         type="text"
@@ -141,34 +156,38 @@
       </button>
     </div>
   </form>
-  <!-- TABLE -->
-  <table class="table" id="emptyTable">
-    <thead id="thread">
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Driver</th>
-        <th scope="col">Debut Game</th>
-        <th scope="col">Special Skill</th>
-      </tr>
-    </thead>
-    <tbody id="bodyTable"></tbody>
-  </table>
+<!-- TABLE----------------------------------------------------------------- -->
+<table class="table" id="emptyTable">
+  <thead id="thread">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Driver</th>
+      <th scope="col">Debut Game</th>
+      <th scope="col">Special Skill</th>
+    </tr>
+  </thead>
+  <tbody id="bodyTable"></tbody>
+</table>
+<!-- WAITING PIC FOR TABLE------------------------------------------------- -->
+<div id="LakituDiv">
+  <div class="coin-box-rivet1"><br /></div>
+  <div class="coin-box-rivet2"><br /></div>
+  <div class="coin-box-rivet3"><br /></div>
+  <div class="coin-box-rivet4"><br /></div>
+  <img src="../Images/lakituWait.png" width="40%" height="40%" alt="Lakitu">
+</div>
 
-  <div id="LakituDiv">
-    <div class="coin-box-rivet1"><br /></div>
-    <div class="coin-box-rivet2"><br /></div>
-    <div class="coin-box-rivet3"><br /></div>
-    <div class="coin-box-rivet4"><br /></div>
-    <img src="../Images/lakituWait.png" width="40%" height="40%" alt="Lakitu">
-  </div>
+<!-- FOOTER---------------------------------------------------------------- -->
+<footer class="footer-container">
 
-     <!-- SCRIPT -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+</footer>
+<!-- SCRIPT---------------------------------------------------------------- -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../JS/additional.js"></script>
-    <script src="../JS/API.js"></script>
+      crossorigin="anonymous">
+</script>
+<script src="../JS/additional.js"></script>
+<script src="../JS/API.js"></script>
 </body>
 </html>
