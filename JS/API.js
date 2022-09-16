@@ -19,8 +19,13 @@ fetch(url).then(response => {
 }).then(result => {  
   data = result
   //console.log(data)
-  setTimeout(displayTable(data), 3000);
+  displayTable(data);
 })}
+
+async function control(){
+ const newData = await fetching();
+ console.log(newData);
+}
 
 //DISPLAY THE WHOLE API DATA
 
@@ -134,28 +139,71 @@ function createCheckboxTable(input){
 }
   
 //clean up this new array
-//cleanCheckedArray(arrayDriver);
+
 const cleanedArray = [];
+const checkArray = [];
 const doubledNames = [];
-for(let g=0; g<arrayDriver.length; g++){
-  arrayDriver[g].forEach(test => {
-    if(doubledNames.includes(test.name)){
-      console.log("doubled", test.name)
-    } else{
-      doubledNames.push(test.name);
-      cleanedArray.push(test);
+
+if(arrayDriver.length == 1){
+  arrayDriver[0].forEach(onlyonecheck =>{
+    cleanedArray.push(onlyonecheck);
+  })
+} else {
+  arrayDriver[0].forEach(firstarray =>{
+    checkArray.push(firstarray.name)
+  })
+  for(let g=1; g<arrayDriver.length; g++){
+    doubledNames.splice(0, doubledNames.length);
+    arrayDriver[g].forEach(checkednames => {
+      if(checkArray.includes(checkednames.name)){
+        doubledNames.push(checkednames.name)
+      }
+    })
+    checkArray.splice(0, checkArray.length);
+    for(let k of doubledNames){
+      checkArray.push(k);
     }
-  }) 
-  console.log('cleanedArray', cleanedArray)
+  }
 }
 
-  //emtpy the exisiting table
+console.log('Final checkArray', checkArray);
+
+if(checkArray.length == 0){
   tbody.innerHTML = "";
+} else{
+arrayDriver[0].forEach(finalname => {
+  if(checkArray.includes(finalname.name)){
+    cleanedArray.push(finalname);
+  }
+})
+}
+
+console.log('cleanedArray', cleanedArray)
+
+tbody.innerHTML = "";
+displayTable(cleanedArray);
+
+/*
+
+for(let g=0; g<arrayDriver.length; g++){
+  arrayDriver[g].forEach(test => {
+    if(checkArray.includes(test.name)){
+      console.log("doubled", test.name);
+      doubledNames.push(test.name);
+    } else{
+      console.log('not doubled', test.name);
+    }
+  }) 
+  console.log('doubledNames', doubledNames)
+}
+*/
+  //emtpy the exisiting table
+  //tbody.innerHTML = "";
   //insert the checked Driver in the table and show them
   /*cleanedArray.forEach(testing =>{   only necessary, when an array has more then one object
     displayTable(testing);
   })*/
-  displayTable(cleanedArray);
+  //displayTable(cleanedArray);
   }
 
 function filteredMustache(){ 
