@@ -11,7 +11,7 @@ let data
 
 fetching()
 
-//FETCH THE API DATA
+//FETCH THE API DATA -----------------------------------------------------------------------------
 
 function fetching(){
 fetch(url).then(response => {
@@ -27,7 +27,7 @@ async function control(){
  console.log(newData);
 }
 
-//DISPLAY THE WHOLE API DATA
+//DISPLAY THE WHOLE API DATA -----------------------------------------------------------------------
 
 function displayTable(input){
 input.forEach((driver) => {
@@ -39,8 +39,11 @@ input.forEach((driver) => {
   const td2 = document.createElement("td");
   const td3 = document.createElement("td");
   const td4 = document.createElement("td");
+  const td5 = document.createElement("td");
   const img_chara = document.createElement("img");
   const img_skill = document.createElement("img");
+
+
 
 //define the inner HTML/Content
 for(let g = 0; g < addInfo.length; g++){
@@ -61,7 +64,9 @@ try{
   td3.innerHTML = "<br>" + "No Debut Game";
 }
 
-td4.innerHTML = driver.special_skill + "<br>";
+td4.innerHTML = "<br>" + driver.rarity;
+
+td5.innerHTML = driver.special_skill + "<br>";
 for(let d = 0; d < addInfo.length; d++){
   if(driver.name == addInfo[d].name){
   img_skill.src = addInfo[d].img_skill;
@@ -78,6 +83,7 @@ td1.setAttribute("class", "columStyle");
 td2.setAttribute("class", "columStyle");
 td3.setAttribute("class", "columStyle");
 td4.setAttribute("class", "columStyle");
+td5.setAttribute("class", "columStyle");
 img_chara.setAttribute("class", "imageChara");
 img_skill.setAttribute("class", "imageSkill");    
 
@@ -86,8 +92,9 @@ img_skill.setAttribute("class", "imageSkill");
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
-  td4.appendChild(img_skill);
   tr.appendChild(td4);
+  td5.appendChild(img_skill);
+  tr.appendChild(td5);
 
   tbody.appendChild(tr);
 })
@@ -95,7 +102,7 @@ const lakitu = document.getElementById("LakituDiv");
   lakitu.style.display = "none";
 }
 
-//CODE FOR CHECKBOXES WITH LMS
+//CODE FOR CHECKBOXES WITH LMS ---------------------------------------------------------------------------
 
 //set all checkboxes in a variable
 let checkboxes = document.querySelectorAll("input[type=checkbox]");
@@ -105,12 +112,11 @@ checkboxes.forEach(changed => {
   changed.addEventListener("change", showChecked)
 })
 
-//create an empty array for the checked values
-let checkedValues = [];
+
 
 //get all the value, if they are checked
 function showChecked() {
-  checkedValues = [];
+  let checkedValues = [];
   checkboxes.forEach(checked =>{
     if(checked.checked){
       let dataValue = checked.value;
@@ -121,11 +127,24 @@ function showChecked() {
   if(checkedValues.length === 0){
     tbody.innerHTML = "";
     displayTable(data);
+    searchBar();
   } else {
   createCheckboxTable(checkedValues);}
 } 
 
 function createCheckboxTable(input){
+
+  const filterDriver = data.filter(driver => {
+    const foo = input.filter(value => {
+      console.log('driver[value]', driver[value])
+      return driver[value] == true
+    })
+    console.log('foo', foo)
+    return foo.length == input.length
+})
+
+console.log('filterDriver', filterDriver)
+
   const arrayDriver = [];
   //check each checked value and if there is a hit and then do the filtering
   for(let i = 0; i<input.length; i++){
@@ -144,6 +163,7 @@ const cleanedArray = [];
 const checkArray = [];
 const doubledNames = [];
 
+//if you have more then one filtered information, then create an array of the names which exist in each filter
 if(arrayDriver.length == 1){
   arrayDriver[0].forEach(onlyonecheck =>{
     cleanedArray.push(onlyonecheck);
@@ -165,9 +185,10 @@ if(arrayDriver.length == 1){
     }
   }
 }
-
+//array of names, which are fullfill every checked checkbox condition
 console.log('Final checkArray', checkArray);
 
+//compare the names with the first filtered
 if(checkArray.length == 0){
   tbody.innerHTML = "";
 } else{
@@ -177,35 +198,14 @@ arrayDriver[0].forEach(finalname => {
   }
 })
 }
-
+//new array with all the datas of the hit checkboxes
 console.log('cleanedArray', cleanedArray)
 
 tbody.innerHTML = "";
 displayTable(cleanedArray);
+searchBar();}
 
-/*
-
-for(let g=0; g<arrayDriver.length; g++){
-  arrayDriver[g].forEach(test => {
-    if(checkArray.includes(test.name)){
-      console.log("doubled", test.name);
-      doubledNames.push(test.name);
-    } else{
-      console.log('not doubled', test.name);
-    }
-  }) 
-  console.log('doubledNames', doubledNames)
-}
-*/
-  //emtpy the exisiting table
-  //tbody.innerHTML = "";
-  //insert the checked Driver in the table and show them
-  /*cleanedArray.forEach(testing =>{   only necessary, when an array has more then one object
-    displayTable(testing);
-  })*/
-  //displayTable(cleanedArray);
-  }
-
+//Each filter for each checkbox
 function filteredMustache(){ 
   filterMustache = data.filter(driver => driver.mustache == true);
   return filterMustache
@@ -226,7 +226,7 @@ function filteredGloves(){
   return filterGloves;
 }
 
-//FUNCTION SEARCH BAR WITH SEARCH BUTTON
+//FUNCTION SEARCH BAR WITH SEARCH BUTTON -----------------------------------------------------------------------
 
 searchBtn.addEventListener("click", searchBar);
 
@@ -249,7 +249,7 @@ function searchBar() {
   }
 }
 
-//FUNCTION CLEAR BUTTON
+//FUNCTION CLEAR BUTTON -----------------------------------------------------------------------------------
 
 clearBtn.addEventListener("click", clearing);
 
@@ -263,8 +263,71 @@ function clearing() {
   input.value = "";
 }
 
+//FUNCTION SELECT TO SORT ALPHABETICAL -----------------------------------------------------------------------
+document.getElementById("mySort").addEventListener("change", showSelected);
 
+function showSelected(){
+  if(this.value == "a-z"){sortFromA();}
+  else if(this.value == "z-a"){sortFromZ();}
+  else if(this.value == "rare"){sortFromRare();}
+}
 
+function sortFromA(){
+  tr = tbody.getElementsByTagName("tr");
+  let switching
+  switching = true;
+  console.log("sortierung")
+  while(switching){
+    switching = false;
+  for(let i = 0; i<(tr.length - 1); i++){
+  td1 = tr[i].getElementsByTagName("td")[1];
+  td2 = tr[i + 1].getElementsByTagName("td")[1];
+  if(td1.textContent.toLowerCase() > td2.textContent.toLowerCase()){
+    tbody.insertBefore(tr[i + 1], tbody.children[i]);
+    switching = true;
+    break;
+  }
+  }
+  }
+}
+
+function sortFromZ(){
+  tr = tbody.getElementsByTagName("tr");
+  let switching
+  switching = true;
+  console.log("sortierung")
+  while(switching){
+    switching = false;
+  for(let i = 0; i<(tr.length - 1); i++){
+  td1 = tr[i].getElementsByTagName("td")[1];
+  td2 = tr[i + 1].getElementsByTagName("td")[1];
+  if(td1.textContent.toLowerCase() < td2.textContent.toLowerCase()){
+    tbody.insertBefore(tr[i + 1], tbody.children[i]);
+    switching = true;
+    break;
+  }
+  }
+  }
+}
+
+function sortFromRare(){
+  tr = tbody.getElementsByTagName("tr");
+  let switching
+  switching = true;
+  console.log("sortierung")
+  while(switching){
+    switching = false;
+  for(let i = 0; i<(tr.length - 1); i++){
+  td1 = tr[i].getElementsByTagName("td")[3];
+  td2 = tr[i + 1].getElementsByTagName("td")[3];
+  if(td1.textContent.toLowerCase() > td2.textContent.toLowerCase()){
+    tbody.insertBefore(tr[i + 1], tbody.children[i]);
+    switching = true;
+    break;
+  }
+  }
+  }
+}
 
 /* THIS IS NOIT NECESSARY ANYMORE HERE (FUNCTION CLEAN ARRAY)
 function cleanCheckedArray(input){

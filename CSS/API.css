@@ -37,7 +37,7 @@ body {
   height: 50px;
   width: 400px;
 }
-
+ /* SEARCH BAR ----------------------------------------------------------------------- */
 .input-group {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -57,7 +57,10 @@ body {
   .clear-btn {
     background-color: aqua;
   }
-  
+
+  /* SELECT ALPHABETICAL -------------------------------------------------------------- */
+
+  /* TABLE ---------------------------------------------------------------------------- */
   #thread{
     text-align: center;
   }

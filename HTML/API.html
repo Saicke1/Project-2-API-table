@@ -83,7 +83,7 @@
       <a class="navbar-brand" href="#">Mario Kart Tour Drivers</a>
     </div>
 </nav>
-  <!-- MARIO WELCOME FIGURE -->
+  <!-- MARIO WELCOME FIGURE----------------------------------------------------------------------- -->
   <div class="text-center">
     <img
       src="../Images/marioWelcome.png"
@@ -154,6 +154,12 @@
       >
         Clear
       </button>
+      <select class="form-select" aria-label="Default select example" id="mySort">
+        <option selected>Sort by</option>
+        <option value="a-z">A - Z</option>
+        <option value="z-a">Z - A</option>
+        <option value="rare">Rarest Driver</option>
+      </select>
     </div>
   </form>
 <!-- TABLE----------------------------------------------------------------- -->
@@ -163,6 +169,7 @@
       <th scope="col"></th>
       <th scope="col">Driver</th>
       <th scope="col">Debut Game</th>
+      <th scope="col">Rarity</th>
       <th scope="col">Special Skill</th>
     </tr>
   </thead>
