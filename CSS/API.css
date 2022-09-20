@@ -3,6 +3,11 @@ body {
     background-image: url("../Images/marioWallpaper.png");
   }
 
+.marioWelcome{
+  width: 10%;
+  height: 15%;
+}
+
 .searchForm{
   background-color: #fbd000;
   border-right: 5px solid #ffde24;
@@ -23,6 +28,7 @@ body {
 
 .title-show-drivers{
   margin-top: 20px;
+  text-align: center;
 }
 
 .checkboxes{
@@ -41,7 +47,7 @@ body {
 .input-group {
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 60%;
+  width: 80%;
   padding: 10px;
 }
   
@@ -63,24 +69,26 @@ body {
   /* TABLE ---------------------------------------------------------------------------- */
   #thread{
     text-align: center;
+    background-color: #ff2b44;
+    border-bottom: 4px solid red;
+    height: 50px;
   }
 
   #emptyTable {
-    background-color: #ff3f56;
+    background-color: #ff6c7e;
     border: 4px solid red;
     width: 95%;
     margin-left: 2.5%;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-radius: 0.375rem;
   }
   
   .columStyle {
     padding: 0.5rem 0.5rem;
     text-align: center;
   }
+
+.rows{
+  border-bottom: 2px solid red;
+}
 
   tr.rows:hover {
     background-color: red;
@@ -133,23 +141,16 @@ body {
     left: 0;
     bottom: 0;
   }
-  .coin-box-rivet4 {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    margin: 5px;
-    border-radius: 50%;
-    background-color: #a78e00;
-    bottom: 0;
-    right: 0;
-  }
 
-.checkedMustache{
-
-}
-
-.checkedHat{
-
+.coin-box-rivet4 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #a78e00;
+  bottom: 0;
+  right: 0;
 }
 
 .imageChara{
@@ -162,8 +163,123 @@ body {
   height: 70px;
 }
 
+/* FOOTER ---------------------------------------------------------------------------- */
 .footer-container{
   background-color: white;
   width: 100%;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.icons{
+  display: flex;
+  gap: 10px;
+  font-size: 35px;
+  color: red;
+}
+
+/* BOWSER POP UP ---------------------------------------------------------------------------- */
+
+.centering{
+  position: fixed;
+  top: 35%;
+  left: 25%;
+  margin-top: -100px;
+  margin-left: -100px;
+  width: 60%;
+  height: auto;
+  z-index: 5;
+}
+
+.popUpBowser{
+  background-color: #fbd000;
+  border-right: 5px solid #ffde24;
+  border-left: 5px solid #ffde24;
+  border-bottom: 5px solid #a78e00;
+  border-top: 5px solid #ffea72;
+  border-radius: 3px;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 15px;
+  width: 60%;
+  left: 20%;
+  top: 50%;
+}
+
+.bowserPainting{
+  width: 80%;
+  height: 80%;
+}
+
+
+/* MEDIA QUERY ---------------------------------------------------------------------------- */
+
+@media screen and (max-width: 412px){
+
+.marioWelcome{
+  width: 25%;
+  height: 35%;
+}
+
+/* SEARCH FORM ---------------------------------------------------------------------------- */
+.title-show-drivers{
+  padding: 10px;
+}
+
+.checkboxes{
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100px;
+  width: 200px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 5px;
+  gap: 5px;
+}
+
+#searchInput{
+  width: 100%;
+  border-radius: 3px;
+}
+
+#mySort{
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* TABLE ---------------------------------------------------------------------------- */
+#emptyTable {
+  width: 100%;
+  margin-left: 0%;
+}
+
+/* LAKITU WAITING PIC ---------------------------------------------------------------------------- */
+#LakituDiv{
+  width: 70%;
+  height: 50%;
+  margin-left: 15%;
+}
+
+.footer-container{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-top: 0px;
+}
+
+.hiding{
+  display: none;
+}
 }

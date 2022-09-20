@@ -79,10 +79,12 @@ for(let d = 0; d < addInfo.length; d++){
 
 //style the rows and columns
 tr.setAttribute("class", "rows");
+tr.setAttribute("onclick", "playAudio()");
 td1.setAttribute("class", "columStyle");
 td2.setAttribute("class", "columStyle");
 td3.setAttribute("class", "columStyle");
 td4.setAttribute("class", "columStyle");
+td4.classList.add("hiding");
 td5.setAttribute("class", "columStyle");
 img_chara.setAttribute("class", "imageChara");
 img_skill.setAttribute("class", "imageSkill");    
@@ -128,6 +130,7 @@ function showChecked() {
     tbody.innerHTML = "";
     displayTable(data);
     searchBar();
+    showSelected()
   } else {
   createCheckboxTable(checkedValues);}
 } 
@@ -203,7 +206,8 @@ console.log('cleanedArray', cleanedArray)
 
 tbody.innerHTML = "";
 displayTable(cleanedArray);
-searchBar();}
+searchBar();
+showSelected();}
 
 //Each filter for each checkbox
 function filteredMustache(){ 
@@ -325,107 +329,32 @@ function sortFromRare(){
     switching = true;
     break;
   }
-  }
+  }}
+
+  let switch2
+  switch2 = true;
+  while(switch2){
+    switch2 = false;
+    for(let l=0; l<(tr.length - 1); l++){
+      td1 = tr[l].getElementsByTagName("td")[3];
+      td2 = tr[l + 1].getElementsByTagName("td")[3];
+      if(td1.textContent.toLowerCase() == "normal" && td1.textContent.toLowerCase() < td2.textContent.toLowerCase()){
+        tbody.insertBefore(tr[l + 1], tbody.children[l]);
+        switch2 = true;
+        break;
+      }
+    }
   }
 }
 
-/* THIS IS NOIT NECESSARY ANYMORE HERE (FUNCTION CLEAN ARRAY)
-function cleanCheckedArray(input){
-const cleanedArray = [];
-const doubledNames = [];
-//console.log('input[0].length', input[0].length)  ist 30
-//console.log('input[1].length', input[1].length)  ist 39
-for(let g=0; g<input.length; g++){
-input[g].forEach(test => {
-  if(doubledNames.includes(test.name)){
-    console.log("doubled", test.name)
+//FUNCTION FOR AUDIO FROM BOWSER -----------------------------------------------------------------------
+
+const audio = document.getElementById("bowserAudio");
+const bowserBox = document.getElementById("popUpBowser");
+
+function playAudio(){
+  if(bowserBox.style.display === 'flex'){
+    bowserBox.style.display = 'none';
   } else{
-    doubledNames.push(test.name);
-    cleanedArray.push(test);
-  }
-})
-console.log('cleanedArray', cleanedArray)
-}
-return cleanedArray;
-}
-*/
-
-
-/*
-//FUNCTION CHECKBOX MUSTACHE
-
-boxMustache.addEventListener("click", showMustache)
-
-function showMustache(){
-  if(boxMustache.checked == true){
-    filterMustache = data.filter(driver => driver.mustache == true);
-    console.log(filterMustache)
-    tr = tbody.getElementsByTagName("tr");
-    for(let i = 0; i < filterMustache.length; i++){
-      for (let j = i; j < tr.length; j++) {
-        td = tr[j].getElementsByTagName("td")[1];
-        if(filterMustache[i].name == td.textContent && tr[j].className !== 'checkedMustache'){
-          tr[j].classList.add("checkedMustache");
-          //console.log(tr[j]);
-        }}
-    }
-    for(let h = 0; h < tr.length; h++){
-      if(tr[h].classList.contains("checkedMustache") && tr[h].style.display == ""){
-        tr[h].style.display = "";
-      } else {
-        tr[h].style.display = "none";
-      }
-    }
-  } else {
-    tr = tbody.getElementsByTagName("tr");
-    for(let s = 0; s < tr.length; s++){
-      if(tr[s].classList.contains("checkedHat")){
-        tr[s].style.display = "";
-        tr[s].classList.remove = ("checkedMustache");
-      } else {
-        tr[s].style.display = "none";
-        tr[s].classList.remove = ("checkedMustache");
-      }
-    }
-  }
-}
-
-//FUNCTION CHECKBOX HAT
-
-boxHat.addEventListener("click", showHat)
-
-function showHat(){
-  if(boxHat.checked == true){
-    filterHat = data.filter(driver => driver.hat == true);
-    console.log(filterHat)
-    tr = tbody.getElementsByTagName("tr");
-    for(let i = 0; i < filterHat.length; i++){
-      for (let j = i; j < tr.length; j++) {
-        td = tr[j].getElementsByTagName("td")[1];
-        if(filterHat[i].name == td.textContent && tr[j].className !== 'checkedHat'){
-          tr[j].classList.add("checkedHat");
-          console.log(tr[j]);
-        }}
-    }
-    for(let h = 0; h < tr.length; h++){
-      if(tr[h].classList.contains("checkedHat") && tr[h].style.display == ""){
-        tr[h].style.display = "";
-        //console.log(tr[h])
-      } else {
-        tr[h].style.display = "none";
-      }
-    }
-  } else {
-    tr = tbody.getElementsByTagName("tr");
-    for(let s = 0; s < tr.length; s++){
-      if(tr[s].classList.contains("checkedMustache")){
-        tr[s].style.display = "";
-        tr[s].classList.remove = ("checkedHat");
-      } else {
-        tr[s].style.display = "none";
-        tr[s].classList.remove = ("checkedHat");
-      }
-    }
-  }
-}
-*/
+  bowserBox.style.display = 'flex';
+  audio.play();}}
