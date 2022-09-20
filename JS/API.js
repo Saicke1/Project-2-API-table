@@ -233,6 +233,12 @@ function filteredGloves(){
 //FUNCTION SEARCH BAR WITH SEARCH BUTTON -----------------------------------------------------------------------
 
 searchBtn.addEventListener("click", searchBar);
+input.addEventListener("keypress", function(press){
+  if(press.key === "Enter"){
+    press.preventDefault();
+    searchBar();
+  }
+});
 
 function searchBar() {
   // Declare variables
