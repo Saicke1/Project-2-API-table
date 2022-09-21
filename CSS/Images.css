@@ -9,15 +9,68 @@ body {
   margin-top: 10px;
 }
 
-.push{
-  width: 30%;
-  max-height: 500px;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 100px;
+.fix{
+  width: 15%;
+  height: 45%;
 }
 
-.fix{
-  width: 70%;
-  height: 100%;
+.cardHolder{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.card{
+  border: 2px solid red;
+}
+
+.centerImg{
+  display: flex;
+  justify-content: center;
+}
+
+.image-cards{
+  width: 150px;
+  height: 200px;
+}
+
+/* MARIO DRIVER CSS ANIMATION ------------------------------------------ */
+
+.cssBox{
+  background-color: #fbd000;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.marioDriverSize{
+  width: 50px;
+  height: 50px;
+}
+
+#cssAnimation{
+  bottom: 15%;
+  position: absolute;
+  -webkit-animation: linear infinite alternate;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 15s;
+}
+
+@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+    webkit-transform: scaleX(-1);
+  }
 }

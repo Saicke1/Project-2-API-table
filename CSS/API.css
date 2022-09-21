@@ -6,6 +6,7 @@ body {
 .marioWelcome{
   width: 10%;
   height: 15%;
+  cursor: pointer;
 }
 
 .searchForm{
@@ -186,8 +187,8 @@ body {
 
 .centering{
   position: fixed;
-  top: 35%;
-  left: 25%;
+  top: 30%;
+  left: 40%;
   margin-top: -100px;
   margin-left: -100px;
   width: 60%;
@@ -210,8 +211,7 @@ body {
   flex-direction: column;
   padding: 15px;
   width: 60%;
-  left: 20%;
-  top: 50%;
+
 }
 
 .bowserPainting{
@@ -282,4 +282,11 @@ body {
 .hiding{
   display: none;
 }
+}
+
+/* BOWSER PAINTING ---------------------------------------------------------------------------- */
+.centering{
+  top: 30%;
+  left: 45%;
+  width: 100%;
 }

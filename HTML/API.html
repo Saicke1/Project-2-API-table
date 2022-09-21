@@ -100,14 +100,20 @@
       <a class="navbar-brand" href="#">Mario Kart Tour Drivers</a>
     </div>
 </nav>
-  <!-- MARIO WELCOME FIGURE----------------------------------------------------------------------- -->
+  <!-- MARIO WELCOME FIGURE AND SOUND----------------------------------------------------------------------- -->
   <div class="text-center">
+    <a onclick="document.getElementById('marioAudio').play()">
     <img
       src="../Images/marioWelcome.png"
       class="rounded marioWelcome"
       alt="marioWelcome"
     />
+  </a>
   </div>
+
+  <audio id="marioAudio">
+    <source src="../marioSound.mp3" type="audio/mp3">
+  </audio>
   <!-- SEARCH FORM------------------------------------------------------------------------------- -->
 
   <form class="searchForm">

@@ -8,8 +8,7 @@ const boxMustache = document.getElementById("checkMustache");
 const boxHat = document.getElementById("checkHat");
 let filterMustache
 let data
-
-fetching()
+let data2
 
 //FETCH THE API DATA -----------------------------------------------------------------------------
 
@@ -22,10 +21,26 @@ fetch(url).then(response => {
   displayTable(data);
 })}
 
+fetching();
+
+/*
+const fetch2 = async function diff(){
+  const resp = await fetch(url);
+  data2 = await resp.json();
+  return data2
+};
+
+fetch2();
+
 async function control(){
- const newData = await fetching();
- console.log(newData);
+ const newData = await fetch2();
+
+ //create the table
+ displayTable(newData);
 }
+
+control();
+*/
 
 //DISPLAY THE WHOLE API DATA -----------------------------------------------------------------------
 
@@ -136,18 +151,17 @@ function showChecked() {
 } 
 
 function createCheckboxTable(input){
-
   const filterDriver = data.filter(driver => {
-    const foo = input.filter(value => {
-      console.log('driver[value]', driver[value])
+    const trueDriver = input.filter(value => {
+      //console.log('driver[value]', driver[value])
       return driver[value] == true
     })
-    console.log('foo', foo)
-    return foo.length == input.length
-})
+    //console.log('trueDriver', trueDriver)
+    return trueDriver.length == input.length
+  })
 
-console.log('filterDriver', filterDriver)
-
+//console.log('filterDriver', filterDriver) 
+/*
   const arrayDriver = [];
   //check each checked value and if there is a hit and then do the filtering
   for(let i = 0; i<input.length; i++){
@@ -189,7 +203,7 @@ if(arrayDriver.length == 1){
   }
 }
 //array of names, which are fullfill every checked checkbox condition
-console.log('Final checkArray', checkArray);
+//console.log('Final checkArray', checkArray);
 
 //compare the names with the first filtered
 if(checkArray.length == 0){
@@ -203,9 +217,9 @@ arrayDriver[0].forEach(finalname => {
 }
 //new array with all the datas of the hit checkboxes
 console.log('cleanedArray', cleanedArray)
-
+*/
 tbody.innerHTML = "";
-displayTable(cleanedArray);
+displayTable(filterDriver);
 searchBar();
 showSelected();}
 
@@ -233,6 +247,7 @@ function filteredGloves(){
 //FUNCTION SEARCH BAR WITH SEARCH BUTTON -----------------------------------------------------------------------
 
 searchBtn.addEventListener("click", searchBar);
+//Event Listener for pressing the Enter Key
 input.addEventListener("keypress", function(press){
   if(press.key === "Enter"){
     press.preventDefault();

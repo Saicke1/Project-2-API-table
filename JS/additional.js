@@ -2,20 +2,23 @@ const additional = [
   {
     name: "Baby Mario",
     img_chara: "../Images/addCharaImages/babyMario.png",
-    text: "1",
-    img_skill: "../Images/addSkillImages/boomerangFlower.webp"
+    text: "He is a small crying baby and not cool at all!",
+    img_skill: "../Images/addSkillImages/boomerangFlower.webp",
+    ref: "https://www.mariowiki.com/Baby_Mario"
   },
   {
     name: "Baby Peach",
     img_chara: "../Images/addCharaImages/babyPeach.webp",
-    text: "2",
-    img_skill: "../Images/addSkillImages/bubble.webp"
+    text: "This baby Peach is really cute and I want to hug her!",
+    img_skill: "../Images/addSkillImages/bubble.webp",
+    ref: "https://www.mariowiki.com/Baby_Peach"
   },
   {
     name: "Baby Daisy",
     img_chara: "../Images/addCharaImages/babyDaisy.webp",
-    text: "2",
-    img_skill: "../Images/addSkillImages/bubble.webp"
+    text: "She is also cute, but not so cute like baby Peach.",
+    img_skill: "../Images/addSkillImages/bubble.webp",
+    ref: "https://www.mariowiki.com/Baby_Daisy"
   },
   {
     name: "Baby Rosalina",
