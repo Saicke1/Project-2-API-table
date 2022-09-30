@@ -1,4 +1,4 @@
-var drivers = [
+const drivers = [
   {
     position: 1,
     name: "Baby Mario",

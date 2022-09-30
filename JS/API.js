@@ -1,4 +1,5 @@
 const url = "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers";
+const urlb = drivers;
 const addInfo = additional;
 const tbody = document.getElementById("bodyTable");
 const searchBtn = document.getElementById("searchBtn");
@@ -13,13 +14,15 @@ let data2
 //FETCH THE API DATA -----------------------------------------------------------------------------
 
 function fetching(){
-fetch(url).then(response => {
+/* fetch(urlb).then(response => {
   return response.json()
 }).then(result => {  
-  data = result
+  data = result */
   //console.log(data)
-  displayTable(data);
-})}
+
+
+  displayTable(urlb);
+/* }) */}
 
 fetching();
 
