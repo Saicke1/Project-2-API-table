@@ -7,22 +7,23 @@ const clearBtn = document.getElementById("clearBtn");
 const input = document.getElementById("searchInput");
 const boxMustache = document.getElementById("checkMustache");
 const boxHat = document.getElementById("checkHat");
-let filterMustache
-let data
-let data2
+let filterMustache;
+let data;
+let data2;
 
 //FETCH THE API DATA -----------------------------------------------------------------------------
 
-function fetching(){
-/* fetch(urlb).then(response => {
+function fetching() {
+  /* fetch(urlb).then(response => {
   return response.json()
 }).then(result => {  
   data = result */
   //console.log(data)
 
-
+  data = urlb;
   displayTable(urlb);
-/* }) */}
+  /* }) */
+}
 
 fetching();
 
@@ -47,78 +48,75 @@ control();
 
 //DISPLAY THE WHOLE API DATA -----------------------------------------------------------------------
 
-function displayTable(input){
-input.forEach((driver) => {
-  //console.log('driver', driver)
+function displayTable(input) {
+  input.forEach((driver) => {
+    //console.log('driver', driver)
 
-  //create Elements
-  const tr = document.createElement("tr");
-  const td1 = document.createElement("td");
-  const td2 = document.createElement("td");
-  const td3 = document.createElement("td");
-  const td4 = document.createElement("td");
-  const td5 = document.createElement("td");
-  const img_chara = document.createElement("img");
-  const img_skill = document.createElement("img");
+    //create Elements
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+    const td4 = document.createElement("td");
+    const td5 = document.createElement("td");
+    const img_chara = document.createElement("img");
+    const img_skill = document.createElement("img");
 
+    //define the inner HTML/Content
+    for (let g = 0; g < addInfo.length; g++) {
+      if (driver.name == addInfo[g].name && addInfo[g].img_chara != "") {
+        img_chara.src = addInfo[g].img_chara;
+        break;
+      } else {
+        img_chara.src = "../Images/question.png";
+      }
+    }
 
+    td2.innerHTML = "<br>" + driver.name;
 
-//define the inner HTML/Content
-for(let g = 0; g < addInfo.length; g++){
-if(driver.name == addInfo[g].name && addInfo[g].img_chara != ""){
-img_chara.src = addInfo[g].img_chara;
-break;
-} else {
-  img_chara.src = "../Images/question.png";
-}
-}
+    try {
+      const debutGame = driver.level_one_favorite_courses[0].debut_game;
+      td3.innerHTML = "<br>" + debutGame;
+    } catch {
+      td3.innerHTML = "<br>" + "No Debut Game";
+    }
 
-td2.innerHTML = "<br>" + driver.name;
+    td4.innerHTML = "<br>" + driver.rarity;
 
-try{
-  const debutGame = driver.level_one_favorite_courses[0].debut_game
-  td3.innerHTML = "<br>" + debutGame;
-} catch{
-  td3.innerHTML = "<br>" + "No Debut Game";
-}
+    td5.innerHTML = driver.special_skill + "<br>";
+    for (let d = 0; d < addInfo.length; d++) {
+      if (driver.name == addInfo[d].name) {
+        img_skill.src = addInfo[d].img_skill;
+        break;
+      } else {
+        img_skill.src = "../Images/question.png";
+      }
+    }
 
-td4.innerHTML = "<br>" + driver.rarity;
+    //style the rows and columns
+    tr.setAttribute("class", "rows");
+    tr.setAttribute("onclick", "playAudio()");
+    td1.setAttribute("class", "columStyle");
+    td2.setAttribute("class", "columStyle");
+    td3.setAttribute("class", "columStyle");
+    td4.setAttribute("class", "columStyle");
+    td4.classList.add("hiding");
+    td5.setAttribute("class", "columStyle");
+    img_chara.setAttribute("class", "imageChara");
+    img_skill.setAttribute("class", "imageSkill");
 
-td5.innerHTML = driver.special_skill + "<br>";
-for(let d = 0; d < addInfo.length; d++){
-  if(driver.name == addInfo[d].name){
-  img_skill.src = addInfo[d].img_skill;
-  break;
-  } else {
-    img_skill.src = "../Images/question.png";
-  }
-}
+    //append everything
+    td1.appendChild(img_chara);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    td5.appendChild(img_skill);
+    tr.appendChild(td5);
 
-
-//style the rows and columns
-tr.setAttribute("class", "rows");
-tr.setAttribute("onclick", "playAudio()");
-td1.setAttribute("class", "columStyle");
-td2.setAttribute("class", "columStyle");
-td3.setAttribute("class", "columStyle");
-td4.setAttribute("class", "columStyle");
-td4.classList.add("hiding");
-td5.setAttribute("class", "columStyle");
-img_chara.setAttribute("class", "imageChara");
-img_skill.setAttribute("class", "imageSkill");    
-
-  //append everything
-  td1.appendChild(img_chara);
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  tr.appendChild(td4);
-  td5.appendChild(img_skill);
-  tr.appendChild(td5);
-
-  tbody.appendChild(tr);
-})
-const lakitu = document.getElementById("LakituDiv");
+    tbody.appendChild(tr);
+  });
+  const lakitu = document.getElementById("LakituDiv");
   lakitu.style.display = "none";
 }
 
@@ -128,43 +126,42 @@ const lakitu = document.getElementById("LakituDiv");
 let checkboxes = document.querySelectorAll("input[type=checkbox]");
 
 //Event for every change on those checkboxes
-checkboxes.forEach(changed => {
-  changed.addEventListener("change", showChecked)
-})
-
-
+checkboxes.forEach((changed) => {
+  changed.addEventListener("change", showChecked);
+});
 
 //get all the value, if they are checked
 function showChecked() {
   let checkedValues = [];
-  checkboxes.forEach(checked =>{
-    if(checked.checked){
+  checkboxes.forEach((checked) => {
+    if (checked.checked) {
       let dataValue = checked.value;
       checkedValues.push(dataValue);
     }
-    return checkedValues
-  })
-  if(checkedValues.length === 0){
+    return checkedValues;
+  });
+  if (checkedValues.length === 0) {
     tbody.innerHTML = "";
     displayTable(data);
     searchBar();
-    showSelected()
+    showSelected();
   } else {
-  createCheckboxTable(checkedValues);}
-} 
+    createCheckboxTable(checkedValues);
+  }
+}
 
-function createCheckboxTable(input){
-  const filterDriver = data.filter(driver => {
-    const trueDriver = input.filter(value => {
+function createCheckboxTable(input) {
+  const filterDriver = data.filter((driver) => {
+    const trueDriver = input.filter((value) => {
       //console.log('driver[value]', driver[value])
-      return driver[value] == true
-    })
+      return driver[value] == true;
+    });
     //console.log('trueDriver', trueDriver)
-    return trueDriver.length == input.length
-  })
+    return trueDriver.length == input.length;
+  });
 
-//console.log('filterDriver', filterDriver) 
-/*
+  //console.log('filterDriver', filterDriver)
+  /*
   const arrayDriver = [];
   //check each checked value and if there is a hit and then do the filtering
   for(let i = 0; i<input.length; i++){
@@ -221,29 +218,30 @@ arrayDriver[0].forEach(finalname => {
 //new array with all the datas of the hit checkboxes
 console.log('cleanedArray', cleanedArray)
 */
-tbody.innerHTML = "";
-displayTable(filterDriver);
-searchBar();
-showSelected();}
-
-//Each filter for each checkbox
-function filteredMustache(){ 
-  filterMustache = data.filter(driver => driver.mustache == true);
-  return filterMustache
+  tbody.innerHTML = "";
+  displayTable(filterDriver);
+  searchBar();
+  showSelected();
 }
 
-function filteredHat(){
-  filterHat = data.filter(driver => driver.hat == true);
+//Each filter for each checkbox
+function filteredMustache() {
+  filterMustache = data.filter((driver) => driver.mustache == true);
+  return filterMustache;
+}
+
+function filteredHat() {
+  filterHat = data.filter((driver) => driver.hat == true);
   return filterHat;
 }
 
-function filteredHorns(){
-  filterHorns = data.filter(driver => driver.horns == true);
+function filteredHorns() {
+  filterHorns = data.filter((driver) => driver.horns == true);
   return filterHorns;
 }
 
-function filteredGloves(){
-  filterGloves = data.filter(driver => driver.gloves == true);
+function filteredGloves() {
+  filterGloves = data.filter((driver) => driver.gloves == true);
   return filterGloves;
 }
 
@@ -251,8 +249,8 @@ function filteredGloves(){
 
 searchBtn.addEventListener("click", searchBar);
 //Event Listener for pressing the Enter Key
-input.addEventListener("keypress", function(press){
-  if(press.key === "Enter"){
+input.addEventListener("keypress", function (press) {
+  if (press.key === "Enter") {
     press.preventDefault();
     searchBar();
   }
@@ -284,7 +282,7 @@ clearBtn.addEventListener("click", clearing);
 function clearing() {
   tr = tbody.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    if (tr[i].style.display = "none") {
+    if ((tr[i].style.display = "none")) {
       tr[i].style.display = "";
     }
   }
@@ -294,75 +292,83 @@ function clearing() {
 //FUNCTION SELECT TO SORT ALPHABETICAL -----------------------------------------------------------------------
 document.getElementById("mySort").addEventListener("change", showSelected);
 
-function showSelected(){
-  if(this.value == "a-z"){sortFromA();}
-  else if(this.value == "z-a"){sortFromZ();}
-  else if(this.value == "rare"){sortFromRare();}
-}
-
-function sortFromA(){
-  tr = tbody.getElementsByTagName("tr");
-  let switching
-  switching = true;
-  console.log("sortierung")
-  while(switching){
-    switching = false;
-  for(let i = 0; i<(tr.length - 1); i++){
-  td1 = tr[i].getElementsByTagName("td")[1];
-  td2 = tr[i + 1].getElementsByTagName("td")[1];
-  if(td1.textContent.toLowerCase() > td2.textContent.toLowerCase()){
-    tbody.insertBefore(tr[i + 1], tbody.children[i]);
-    switching = true;
-    break;
-  }
-  }
+function showSelected() {
+  if (this.value == "a-z") {
+    sortFromA();
+  } else if (this.value == "z-a") {
+    sortFromZ();
+  } else if (this.value == "rare") {
+    sortFromRare();
   }
 }
 
-function sortFromZ(){
+function sortFromA() {
   tr = tbody.getElementsByTagName("tr");
-  let switching
+  let switching;
   switching = true;
-  console.log("sortierung")
-  while(switching){
+  console.log("sortierung");
+  while (switching) {
     switching = false;
-  for(let i = 0; i<(tr.length - 1); i++){
-  td1 = tr[i].getElementsByTagName("td")[1];
-  td2 = tr[i + 1].getElementsByTagName("td")[1];
-  if(td1.textContent.toLowerCase() < td2.textContent.toLowerCase()){
-    tbody.insertBefore(tr[i + 1], tbody.children[i]);
-    switching = true;
-    break;
-  }
-  }
+    for (let i = 0; i < tr.length - 1; i++) {
+      td1 = tr[i].getElementsByTagName("td")[1];
+      td2 = tr[i + 1].getElementsByTagName("td")[1];
+      if (td1.textContent.toLowerCase() > td2.textContent.toLowerCase()) {
+        tbody.insertBefore(tr[i + 1], tbody.children[i]);
+        switching = true;
+        break;
+      }
+    }
   }
 }
 
-function sortFromRare(){
+function sortFromZ() {
   tr = tbody.getElementsByTagName("tr");
-  let switching
+  let switching;
   switching = true;
-  console.log("sortierung")
-  while(switching){
+  console.log("sortierung");
+  while (switching) {
     switching = false;
-  for(let i = 0; i<(tr.length - 1); i++){
-  td1 = tr[i].getElementsByTagName("td")[3];
-  td2 = tr[i + 1].getElementsByTagName("td")[3];
-  if(td1.textContent.toLowerCase() > td2.textContent.toLowerCase()){
-    tbody.insertBefore(tr[i + 1], tbody.children[i]);
-    switching = true;
-    break;
+    for (let i = 0; i < tr.length - 1; i++) {
+      td1 = tr[i].getElementsByTagName("td")[1];
+      td2 = tr[i + 1].getElementsByTagName("td")[1];
+      if (td1.textContent.toLowerCase() < td2.textContent.toLowerCase()) {
+        tbody.insertBefore(tr[i + 1], tbody.children[i]);
+        switching = true;
+        break;
+      }
+    }
   }
-  }}
+}
 
-  let switch2
+function sortFromRare() {
+  tr = tbody.getElementsByTagName("tr");
+  let switching;
+  switching = true;
+  console.log("sortierung");
+  while (switching) {
+    switching = false;
+    for (let i = 0; i < tr.length - 1; i++) {
+      td1 = tr[i].getElementsByTagName("td")[3];
+      td2 = tr[i + 1].getElementsByTagName("td")[3];
+      if (td1.textContent.toLowerCase() > td2.textContent.toLowerCase()) {
+        tbody.insertBefore(tr[i + 1], tbody.children[i]);
+        switching = true;
+        break;
+      }
+    }
+  }
+
+  let switch2;
   switch2 = true;
-  while(switch2){
+  while (switch2) {
     switch2 = false;
-    for(let l=0; l<(tr.length - 1); l++){
+    for (let l = 0; l < tr.length - 1; l++) {
       td1 = tr[l].getElementsByTagName("td")[3];
       td2 = tr[l + 1].getElementsByTagName("td")[3];
-      if(td1.textContent.toLowerCase() == "normal" && td1.textContent.toLowerCase() < td2.textContent.toLowerCase()){
+      if (
+        td1.textContent.toLowerCase() == "normal" &&
+        td1.textContent.toLowerCase() < td2.textContent.toLowerCase()
+      ) {
         tbody.insertBefore(tr[l + 1], tbody.children[l]);
         switch2 = true;
         break;
@@ -376,9 +382,11 @@ function sortFromRare(){
 const audio = document.getElementById("bowserAudio");
 const bowserBox = document.getElementById("popUpBowser");
 
-function playAudio(){
-  if(bowserBox.style.display === 'flex'){
-    bowserBox.style.display = 'none';
-  } else{
-  bowserBox.style.display = 'flex';
-  audio.play();}}
+function playAudio() {
+  if (bowserBox.style.display === "flex") {
+    bowserBox.style.display = "none";
+  } else {
+    bowserBox.style.display = "flex";
+    audio.play();
+  }
+}
